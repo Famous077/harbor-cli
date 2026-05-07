@@ -35,7 +35,7 @@ type TableGrid struct {
 	Styles      Styles               // Custom styles
 	Icons       Icons                // Custom icons
 	Footer      string               // Custom footer text
-	Cancelled bool
+	Cancelled   bool
 }
 
 // Styles contains customizable styles for the table grid

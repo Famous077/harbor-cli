@@ -1,4 +1,4 @@
-// Copyright Project Harbor Authors
+﻿// Copyright Project Harbor Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -132,12 +132,12 @@ func ListPermissions(perms *models.Permissions, kind string, ch chan<- Permissio
 	}
 	_, err = tea.NewProgram(grid, tea.WithAltScreen()).Run()
 	if grid.Cancelled {
-		ch <- PermissionSelectResult{
-			Permissions: nil,
-			Err:         fmt.Errorf("user exited at permission selection"),
-		}
-		return
-	}
+    ch <- PermissionSelectResult{
+        Permissions: nil,
+        Err:         fmt.Errorf("user exited at permission selection"),
+    }
+    return
+}
 	if err != nil {
 		fmt.Println("error creating permissions grid:", err)
 		ch <- PermissionSelectResult{
