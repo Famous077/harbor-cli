@@ -131,6 +131,14 @@ func ListPermissions(perms *models.Permissions, kind string, ch chan<- Permissio
 		return
 	}
 	_, err = tea.NewProgram(grid, tea.WithAltScreen()).Run()
+	if err != nil {
+    fmt.Println("error creating permissions grid:", err)
+    ch <- PermissionSelectResult{
+        Permissions: nil,
+        Err:         err,
+    }
+    return
+}
 	if grid.Cancelled {
     ch <- PermissionSelectResult{
         Permissions: nil,
