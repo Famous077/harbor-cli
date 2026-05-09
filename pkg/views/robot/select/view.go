@@ -1,4 +1,4 @@
-// Copyright Project Harbor Authors
+﻿// Copyright Project Harbor Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -145,7 +145,8 @@ func ListPermissions(perms *models.Permissions, kind string, ch chan<- Permissio
         Err:         fmt.Errorf("user exited at permission selection"),
     }
     return
-}
+	}
+	data:= grid.GetData()
 	if err != nil {
 		fmt.Println("error creating permissions grid:", err)
 		ch <- PermissionSelectResult{
@@ -154,7 +155,6 @@ func ListPermissions(perms *models.Permissions, kind string, ch chan<- Permissio
 		}
 		return
 	}
-	data := grid.GetData()
 	selectedPerms := []models.Permission{}
 
 	for rowIdx, displayName := range grid.RowLabels {
